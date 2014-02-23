@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="utf-8">
+    <title>sample</title>
+    <script src="../lib/angular.min.js"></script>
+    <script>
+        function ColorListCtrl($scope) {
+            $scope.colors = [
+                {"name" : "桜色", "kana" : "さくらいろ", "color" : "#fef4f4"},
+                {"name" : "黄色", "kana" : "きいろ", "color" : "#e6b422"}
+            ];   
+        }
+    </script>
+</head>
+<body ng-controller="ColorListCtrl">
+    <div class="toolbar">
+        Search: <input ng-model="query">
+    </div>
+    <div ng-repeat="color in colors | filter:query" class="colorblock" style="background-color:{{color.color}};">
+        <div class="colortitle">{{color.name}} {{color.kana}}</div>
+    </div>
+</body>
+</html>

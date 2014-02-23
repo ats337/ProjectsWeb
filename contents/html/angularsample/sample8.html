@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="utf-8">
+    <title>sample</title>
+    <script src="../../lib/angular.min.js"></script>
+    <script>
+        function Controller($scope) {
+            $scope.counter = 0;
+            $scope.change = function() {
+                $scope.counter++;
+            }
+        }
+    </script>
+    <style>
+        .odd {
+            background-color: red;
+        }
+        .even {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <ol ng-init="names=['John', 'Mary', 'Cate', 'Suz']">
+        <li ng-repeat="name in names">
+            <span ng-class-odd="'odd'" ng-class-even="'even'">
+                {{name}} &nbsp; &nbsp; &nbsp;
+            </span>
+        </li>
+    </ol>
+</body>
+</html>

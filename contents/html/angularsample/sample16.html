@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <title>sample</title>
+    <script src="../../lib/angular/angular.js"></script>
+    <script src="../../lib/angular/angular-animate.js"></script>
+    <script>
+        angular.module('myApp', ['ngAnimate']);
+        function Ctrl($scope) {
+            $scope.templates = [
+                {name: 'template1.html', url: 'template1.html'},
+                {name: 'template2.html', url: 'template2.html'}
+            ];   
+            $scope.template = $scope.templates[0];
+        }
+    </script>
+    <style type="text/css">
+        .slide-animate-container {
+            position: relative;
+            background:white;
+            border:1px solid black;
+            height:40px;
+            overflow:hidden;
+        }
+        .slide-animate {
+            padding:10px;
+        }
+        .slide-animate.ng-enter {
+            -webkit-transition:1s linear all;
+            transition:1s linear all;
+            opacity:0;
+        }
+        .slide-animate.ng-enter.ng-enter-active {
+            opacity:1;
+        }
+    </style>
+</head>
+<body>
+    <div ng-controller="Ctrl">
+        <select ng-model="template" ng-options="t.name for t in templates">
+            <option value="">(blank)</option>
+        </select>
+        url of the template: <tt>{{template.url}}</tt>
+        <hr/>
+        <div class="slide-animate-container">
+            <div class="slide-animate" ng-include="template.url"></div>
+        </div>
+    </div>
+</body>
+</html>

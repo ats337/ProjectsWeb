@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en" ng-app="ngAnimate">
+<head>
+    <meta charset="utf-8">
+    <title>sample</title>
+    <script src="../../lib/angular/angular.js"></script>
+    <script src="../../lib/angular/angular-animate.js"></script>
+    <script>
+    </script>
+    <style>
+        .animate-show {
+            -webkit-transition: all linear 0.5s;
+            transition:all linear 0.5s;
+            line-height: 20px;
+            opacity:1;
+            padding:10px;
+            border:1px solid black;
+            background:white;
+        }
+        
+        .animate-show.ng-hide-add,
+        .animate-show.ng-hide-remove {
+            display:block!important;
+        }
+        
+        .animate-show.ng-hide {
+            line-height:0;
+            opacity:0;
+            padding:0 10px;
+        }
+        
+        .check-element {
+            padding: 10px;
+            border: 1px solid black;
+            background:white;
+        }
+    </style>
+</head>
+<body>
+    Click me: <input type="checkbox" ng-model="checked"><br/>
+    <div>
+        Show:
+        <div class="check-element animate-show" ng-show="checked">
+            <span class="icon-thumbs-up"></span> I show up when your checkbox is checked
+        </div>
+    </div>
+    <div>
+        Hide:
+        <div class="check-element animate-show" ng-hide="checked">
+            <span class="icon-thumbs-down"></span> I hide when your checkbox is checked
+        </div>
+    </div>
+</body>
+</html>

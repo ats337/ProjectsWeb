@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="utf-8">
+    <title>sample</title>
+    <script src="../../lib/angular.min.js"></script>
+    <script>
+        angular.module('exceptionOverride', []).factory('$exceptionHandler', function() {
+           return function (exception, cause) {
+                alert(cause);
+           };
+        });
+        
+        function Ctrl($scope, $http) {
+            
+            $scope.yahoo = function() {
+                $http.get('http://www.yahoo.co.jp').success(function(data, status, headers, config){
+                    alert('SUCCESS')
+                }).error(function(data, status, headers, config) {
+                    alert("ERROR");
+                });
+            }
+        }
+    </script>
+    <style>
+    </style>
+</head>
+<body ng-controller="Ctrl">
+    <a href="" ng-click="yahoo()">add</a><br/>
+</body>
+</html>

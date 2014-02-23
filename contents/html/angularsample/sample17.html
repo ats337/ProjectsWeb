@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="utf-8">
+    <title>sample</title>
+    <script src="../../lib/angular.min.js"></script>
+    <script>
+        function Ctrl($scope) {
+            $scope.names = [];
+        }
+    </script>
+    <style>
+    </style>
+</head>
+<body>
+    <form name="myForm" ng-controller="Ctrl">
+        List: <input name="nameInput" ng-model="names" ng-list required>
+        <span class="error" ng-show="myForm.nameInput.$error.required">
+            Required!!
+        </span>
+        <br>
+        <tt>names = {{names}}</tt><br>
+        <tt>myForm.nameInput.$valid = {{myForm.nameInput.$valid}}</tt><br>
+        <tt>myForm.nameInput.$error = {{myForm.nameInput.$error}}</tt><br>
+        <tt>myForm.$valid = {{myForm.$valid}}</tt><br>
+        <tt>myForm.$error.required = {{!!myForm.$error.required}}</tt>
+    </form>
+</body>
+</html>

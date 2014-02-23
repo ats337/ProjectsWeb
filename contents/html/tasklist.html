@@ -1,0 +1,38 @@
+<div ng-controller="TodoListController">
+    <div class="col-xs-12">
+        <form class="form-inline" role="form">
+            <div class="form-group">
+                <input type="text" placeholder="検索" id="searchWord" class="form-control">
+            </div>
+            <button type="button" class="btn btn-default">
+                <span class="glyphicon glyphicon-search">検索
+            </button>
+            <button type="button" class="btn btn-default">
+                <span class="glyphicon glyphicon-th-large">表示
+            </button>
+            <button type="button" class="btn btn-default">
+                <span class="glyphicon glyphicon-plus">追加
+            </button>
+        </form>
+    </div>
+    <br/>
+        <div class="col-xs-8">
+            <table class="table table-striped">
+                <tr>
+                    <th>ステータス</th>
+                    <th>カテゴリ</th>
+                    <th>タイトル</th>
+                    <th>期限</th>
+                    <th>担当</th>
+                </tr>
+                <!-- 一覧 -->
+            </table>
+        </div>
+        <div class="col-sm-8">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                        <!-- 詳細 -->
+                </div>
+            </div>
+        </div>
+</div>

@@ -1,0 +1,4 @@
+var ConfigController =
+        function($scope) {
+            
+}

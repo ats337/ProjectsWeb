@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="utf-8">
+    <title>sample</title>
+    <script src="../../lib/angular.min.js"></script>
+    <script>
+        function Ctrl($scope) {
+            $scope.names = [];
+        }
+    </script>
+    <style>
+    </style>
+</head>
+<body>
+    Check me to select: <input type="checkbox" ng-model="selected"><br/>
+    <select>
+        <option>Hello!</option>
+        <option id="greet" ng-selected="selected">Greetings!</option>
+    </select>
+</body>
+</html>

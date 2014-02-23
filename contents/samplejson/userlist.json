@@ -1,0 +1,12 @@
+{"userList" : [
+        {"user" : {
+                "id": "U0001",
+                "name":"湯沢太一",
+                "mailAddress":"yuzawa@sample.com"
+        }},
+        {"user": {
+                "id":"U0002",
+                "name":"小山雄一郎",
+                "mailAddress":"koyama@sample.com"
+        }}
+]}

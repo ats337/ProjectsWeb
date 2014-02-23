@@ -1,0 +1,94 @@
+<html lang="en" ng-app="ProjectsApp">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="lib/bootstrap/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="lib/jquery-1.10.1.min.js"></script>
+        <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+        <script src="lib/angular/angular.min.js"></script>
+        <script src="lib/angular/angular-resource.js"></script>
+        <script src="lib/angular/angular-route.js"></script>
+        <script src="lib/angular/angular-animate.js"></script>
+        <script src="lib/ui-bootstrap-tpls-0.10.0.min.js"></script>
+        <script src="lib/angular-ui-router.min.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/service/LoginService.js"></script>
+        <script src="js/controller/NavbarController.js"></script>
+        <script src="js/controller/LoginController.js"></script>
+        <script src="js/controller/LoginModalController.js"></script>
+        <script src="js/controller/TaskListController.js"></script>
+        <script src="js/controller/ProjectController.js"></script>
+        <script src="js/controller/UseraddController.js"></script>
+        <script src="js/controller/ConfigController.js"></script>
+        <script src="js/controller/UserController.js"></script>
+        <style>
+            body {
+                padding-top:70px;
+            }
+        </style>
+    </head>
+    <body>        
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" ng-controller="NavbarController">
+            <div class="collapse navbar-collapse">
+                <a class="navbar-brand" href="#">PROJECTS</a>
+                <ul class="nav navbar-nav">
+                    <li><a href="#/tasklist">タスク</a></li>
+                    <li class="active"><a href="#">プロジェクト</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">ユーザ<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" id="setting_menu_user" onclick="window.router.navigate('userlist', {trigger:true})">ユーザ照会</a></li>
+                            <li ng-class="{active: routeIs('/useradd')}"><a href="#/useradd">ユーザ追加</a></li>
+                        </ul>
+                    </li>
+                    <li><a ui-sref="config">設定</a></li>
+                </ul>
+                <div class="navbar-right" ng-controller="LoginController">     
+                    <button ng-class="{'hidden': isLogin()}"  class="navbar-btn btn btn-default" ng-click="openModal()">ログイン</button>
+                    <span ng-class="{'hidden': !isLogin()}" class="navbar-text">{{getLoginName()}}</span>
+                    <script type="text/ng-template" id="loginModal.html">
+                        <div class="modal-header">
+                        <button type="button" class="close" ng-click="closeModal()" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="modalLabel">ログイン</h4>
+                        </div>
+                        <div class="modal-body">
+                        <form role="form" class="form-horizontal">
+                        <div class="alert alert-danger" collapse="!isLoginError">ログインに失敗しました。</div>
+                        <div class="form-group">
+                        <label for="login_userId" class="col-sm-4 control-label">ユーザID</label>
+                        <div class="col-sm-6">
+                        <input type="text" ng-model="$parent.userId" id="login_userId" class="form-control" placeholder="ユーザID"/>
+                        </div>
+                        </div>
+                        <div class="form-group">
+                        <label for="login_password" class="col-sm-4 control-label">パスワード</label>
+                        <div class="col-sm-6">
+                        <input type="password" ng-model="$parent.password" id="login_password" class="form-control" placeholder="パスワード"/>
+                        </div>
+                        </div>
+                        <div class="form-group">
+                        <div class="col-sm-offset-9 col-sm-2">
+                        <button type="button" ng-click="login()" class="btn btn-primary" id="login_login_button">ログイン</button>
+                        </div>
+                        </div>
+                        </form>
+                        </div>
+                        <div class="modal-footer">
+                        </div>                
+                    </script>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- メインコンテンツ -->
+        <div class="ui-view">
+            <div class="hero-unit">
+                <h1>PROJECTへようこそ</h1>
+                <p>PROJECTで軽快なタスク管理を</p>
+            </div>
+        </div>
+        
+    </body>
+</html>

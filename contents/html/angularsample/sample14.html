@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="utf-8">
+    <title>sample</title>
+    <script src="../../lib/angular.min.js"></script>
+    <script>
+        function Controller($scope) {
+            $scope.counter = 0;
+            $scope.change = function() {
+                $scope.counter++;
+            }
+        }
+    </script>
+    <style>
+    </style>
+</head>
+<body>
+    <input ng-model="value"/><br/>
+    <a id="link-1" href ng-click="value = 1">Link 1</a>(link, don't reload)<br/>
+    <a id="link-2" href="" ng-click="value = 2">Link 2</a>(link, don't reload)<br/>
+    <a id="link-3" ng-href="/{{'123'}}">Link 3</a>(link reload)<br/>
+    <a id="link-4" href="" name="xx" ng-click="value = 4">anchor</a>(link, don't reload)<br/>
+    <a id="link-5" name="xxx" ng-click="value = 5">anchor</a>(no link)<br/>
+    <a id="link-6" ng-href="{{value}}">link</a>(link, change location)
+</body>
+</html>
