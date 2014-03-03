@@ -28,11 +28,11 @@ projectsApp.config(function($stateProvider, $urlRouterProvider) {
                 controller: 'UserController',
                 templateUrl: 'html/user.html'
             })
-            .state('useradd', {
-                url: '/useradd',
-                controller: 'UseraddController',
-                templateUrl: 'html/useradd.html'
-            })
+//            .state('useradd', {
+//                url: '/useradd',
+//                controller: 'UseraddController',
+//                templateUrl: 'html/useradd.html'
+//            })
             .state('tasklist', {
                 url: '/tasklist',
                 controller: 'TaskListController',

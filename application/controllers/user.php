@@ -18,11 +18,10 @@ class User extends CI_Controller {
     }
     
     public function add() {
-        $reqData = json_decode(file_get_contents('php://input'), TRUE);
         $respBody = array(
-            'user_id' => $reqData['userId'],
-            'user_name' => $reqData['userName'],
-            'password' => $reqData['password']
+            'user_id' => $this->input->post('userId'),
+            'user_name' => $this->input->post('userName'),
+            'password' => $this->input->post('password')
         );
         echo json_encode($respBody);
         

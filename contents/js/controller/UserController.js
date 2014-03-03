@@ -1,5 +1,5 @@
-projectsApp.controller('UserController',
-        function UserController($scope, $resource) {
+var UserController =
+        function ($scope, $resource, $modal) {
             $scope.userList = null;
 
 
@@ -10,5 +10,17 @@ projectsApp.controller('UserController',
                             console.log($scope.userList);
                         });
             };
+
+            $scope.openModal = function() {
+                var modalInstance = $modal.open({
+                    templateUrl: 'useraddModal.html',
+                    controller: UseraddController
+                });
+
+                modalInstance.result.then(function() {
+
+                }, function() {
+
+                });
+            }
         }
-);
