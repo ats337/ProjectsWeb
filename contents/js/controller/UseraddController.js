@@ -1,5 +1,5 @@
 var UseraddController =
-    function ($scope, $modalInstance, $http) {
+    function ($rootScope, $scope, $modalInstance, $http) {
         /*
          * モーダルを閉じる
          */
@@ -28,11 +28,12 @@ var UseraddController =
                     data: $.param(userInfo),
                     method: 'POST',
                     headers: {'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'}
-                }).success(function(data){
+                }).success(function(data, status, headers, config){
                     toastr.success('ユーザを追加しました');
                     $scope.closeModal(true);
-                }).error(function(data, status) {
-                    toaster.error("ユーザ登録に失敗しました。");
+                    $rootScope.$broadcast('refreshUserList');
+                }).error(function(data, status, headers, config) {
+                    toastr.error("ユーザ登録に失敗しました。");
                 });
             
 //            $http.post(SERVER_PATH + "user/add", JSON.stringify(userInfo))
